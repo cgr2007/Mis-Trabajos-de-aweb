@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla estilos</title>
+      <style type="text/css">
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 600px;
+            margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            border: 1px solid red;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 0.3em;
+            padding-right: 0.3em;
+        }
+        th {
+            background-color: #CECEF6;
+            font-family: "Comic Sans MS";
+        }
+        td {
+            background-color: #F5F5F5;
+        }
+        table tr:hover {
+            background-color: #F5A9F2;
+            font-size: 18px;
+        }
+        table tr:hover td {
+            background-color: #F5A9F2;
+            font-size: 18px;
+        }
+        h1 {
+            text-align: center;
+        }
+      </style>
+</head>
+
+<body>
+    <h1>Tabla guia telefonica</h1>
+    <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>TLF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Juan</td>
+                    <td>Vega</td>
+                    <td>925123456</td>
+                </tr>
+                <tr>
+                    <td>Jose</td>
+                    <td>Perez</td>
+                    <td>925241879</td>
+                </tr>
+                <tr>
+                    <td>Maria</td>
+                    <td>Sanchez</td>
+                    <td>667341245</td>
+                </tr>
+                <tr>
+                    <td>Enrique</td>
+                    <td>Lopez</td>
+                    <td>612545667</td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+
+</html>

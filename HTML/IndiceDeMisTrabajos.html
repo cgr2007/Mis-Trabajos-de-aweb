@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function addRow(name, url, isdir,
+            size, size_string, date_modified, date_modified_string) {
+            if (name == "." || name == "..")
+                return;
+
+            var root = document.location.pathname;
+            if (root.substr(-1) !== "/")
+                root += "/";
+
+            var tbody = document.getElementById("tbody");
+            var row = document.createElement("tr");
+            var file_cell = document.createElement("td");
+            var link = document.createElement("a");
+
+            link.className = isdir ? "icon dir" : "icon file";
+
+            if (isdir) {
+                name = name + "/";
+                url = url + "/";
+                size = 0;
+                size_string = "";
+            } else {
+                link.draggable = "true";
+                link.addEventListener("dragstart", onDragStart, false);
+            }
+            link.innerText = name;
+            link.href = root + url;
+
+            file_cell.dataset.value = name;
+            file_cell.appendChild(link);
+
+            row.appendChild(file_cell);
+            row.appendChild(createCell(size, size_string));
+            row.appendChild(createCell(date_modified, date_modified_string));
+
+            tbody.appendChild(row);
+        }
+
+        function onDragStart(e) {
+            var el = e.srcElement;
+            var name = el.innerText.replace(":", "");
+            var download_url_data = "application/octet-stream:" + name + ":" + el.href;
+            e.dataTransfer.setData("DownloadURL", download_url_data);
+            e.dataTransfer.effectAllowed = "copy";
+        }
+
+        function createCell(value, text) {
+            var cell = document.createElement("td");
+            cell.setAttribute("class", "detailsColumn");
+            cell.dataset.value = value;
+            cell.innerText = text;
+            return cell;
+        }
+
+        function start(location) {
+            var header = document.getElementById("header");
+            header.innerText = header.innerText.replace("LOCATION", location);
+
+            document.getElementById("title").innerText = header.innerText;
+        }
+
+        function onHasParentDirectory() {
+            var box = document.getElementById("parentDirLinkBox");
+            box.style.display = "block";
+
+            var root = document.location.pathname;
+            if (!root.endsWith("/"))
+                root += "/";
+
+            var link = document.getElementById("parentDirLink");
+            link.href = root + "..";
+        }
+
+        function sortTable(column) {
+            var theader = document.getElementById("theader");
+            var oldOrder = theader.cells[column].dataset.order || '1';
+            oldOrder = parseInt(oldOrder, 10)
+            var newOrder = 0 - oldOrder;
+            theader.cells[column].dataset.order = newOrder;
+
+            var tbody = document.getElementById("tbody");
+            var rows = tbody.rows;
+            var list = [], i;
+            for (i = 0; i < rows.length; i++) {
+                list.push(rows[i]);
+            }
+
+            list.sort(function (row1, row2) {
+                var a = row1.cells[column].dataset.value;
+                var b = row2.cells[column].dataset.value;
+                if (column) {
+                    a = parseInt(a, 10);
+                    b = parseInt(b, 10);
+                    return a > b ? newOrder : a < b ? oldOrder : 0;
+                }
+
+                // Column 0 is text.
+                if (a > b)
+                    return newOrder;
+                if (a < b)
+                    return oldOrder;
+                return 0;
+            });
+
+            // Appending an existing child again just moves it.
+            for (i = 0; i < list.length; i++) {
+                tbody.appendChild(list[i]);
+            }
+        }
+
+        // Add event handlers to column headers.
+        function addHandlers(element, column) {
+            element.onclick = (e) => sortTable(column);
+            element.onkeydown = (e) => {
+                if (e.key == 'Enter' || e.key == ' ') {
+                    sortTable(column);
+                    e.preventDefault();
+                }
+            };
+        }
+
+        function onLoad() {
+            addHandlers(document.getElementById('nameColumnHeader'), 0);
+            addHandlers(document.getElementById('sizeColumnHeader'), 1);
+            addHandlers(document.getElementById('dateColumnHeader'), 2);
+        }
+
+        window.addEventListener('DOMContentLoaded', onLoad);
+    </script>
+    <style>
+        h1 {
+            border-bottom: 1px solid #c0c0c0;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            white-space: nowrap;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        td.detailsColumn {
+            padding-inline-start: 2em;
+            text-align: end;
+            white-space: nowrap;
+        }
+
+        a.icon {
+            padding-inline-start: 1.5em;
+            text-decoration: none;
+            user-select: auto;
+        }
+
+        a.icon:hover {
+            text-decoration: underline;
+        }
+
+        a.file {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAABnRSTlMAAAAAAABupgeRAAABEElEQVR42nRRx3HDMBC846AHZ7sP54BmWAyrsP588qnwlhqw/k4v5ZwWxM1hzmGRgV1cYqrRarXoH2w2m6qqiqKIR6cPtzc3xMSML2Te7XZZlnW7Pe/91/dX47WRBHuA9oyGmRknzGDjab1ePzw8bLfb6WRalmW4ip9FDVpYSWZgOp12Oh3nXJ7nxoJSGEciteP9y+fH52q1euv38WosqA6T2gGOT44vry7BEQtJkMAMMpa6JagAMcUfWYa4hkkzAc7fFlSjwqCoOUYAF5RjHZPVCFBOtSBGfgUDji3c3jpibeEMQhIMh8NwshqyRsBJgvF4jMs/YlVR5KhgNpuBLzk0OcUiR3CMhcPaOzsZiAAA/AjmaB3WZIkAAAAASUVORK5CYII=") left top no-repeat;
+        }
+
+        a.dir {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABt0lEQVR42oxStZoWQRCs2cXdHTLcHZ6EjAwnQWIkJyQlRt4Cd3d3d1n5d7q7ju1zv/q+mh6taQsk8fn29kPDRo87SDMQcNAUJgIQkBjdAoRKdXjm2mOH0AqS+PlkP8sfp0h93iu/PDji9s2FzSSJVg5ykZqWgfGRr9rAAAQiDFoB1OfyESZEB7iAI0lHwLREQBcQQKqo8p+gNUCguwCNAAUQAcFOb0NNGjT+BbUC2YsHZpWLhC6/m0chqIoM1LKbQIIBwlTQE1xAo9QDGDPYf6rkTpPc92gCUYVJAZjhyZltJ95f3zuvLYRGWWCUNkDL2333McBh4kaLlxg+aTmyL7c2xTjkN4Bt7oE3DBP/3SRz65R/bkmBRPGzcRNHYuzMjaj+fdnaFoJUEdTSXfaHbe7XNnMPyqryPcmfY+zURaAB7SHk9cXSH4fQ5rojgCAVIuqCNWgRhLYLhJB4k3iZfIPtnQiCpjAzeBIRXMA6emAqoEbQSoDdGxFUrxS1AYcpaNbBgyQBGJEOnYOeENKR/iAd1npusI4C75/c3539+nbUjOgZV5CkAU27df40lH+agUdIuA/EAgDmZnwZlhDc0wAAAABJRU5ErkJggg==") left top no-repeat;
+        }
+
+        a.up {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACM0lEQVR42myTA+w1RxRHz+zftmrbdlTbtq04qRGrCmvbDWp9tq3a7tPcub8mj9XZ3eHOGQdJAHw77/LbZuvnWy+c/CIAd+91CMf3bo+bgcBiBAGIZKXb19/zodsAkFT+3px+ssYfyHTQW5tr05dCOf3xN49KaVX9+2zy1dX4XMk+5JflN5MBPL30oVsvnvEyp+18Nt3ZAErQMSFOfelCFvw0HcUloDayljZkX+MmamTAMTe+d+ltZ+1wEaRAX/MAnkJdcujzZyErIiVSzCEvIiq4O83AG7LAkwsfIgAnbncag82jfPPdd9RQyhPkpNJvKJWQBKlYFmQA315n4YPNjwMAZYy0TgAweedLmLzTJSTLIxkWDaVCVfAbbiKjytgmm+EGpMBYW0WwwbZ7lL8anox/UxekaOW544HO0ANAshxuORT/RG5YSrjlwZ3lM955tlQqbtVMlWIhjwzkAVFB8Q9EAAA3AFJ+DR3DO/Pnd3NPi7H117rAzWjpEs8vfIqsGZpaweOfEAAFJKuM0v6kf2iC5pZ9+fmLSZfWBVaKfLLNOXj6lYY0V2lfyVCIsVzmcRV9Y0fx02eTaEwhl2PDrXcjFdYRAohQmS8QEFLCLKGYA0AeEakhCCFDXqxsE0AQACgAQp5w96o0lAXuNASeDKWIvADiHwigfBINpWKtAXJvCEKWgSJNbRvxf4SmrnKDpvZavePu1K/zu/due1X/6Nj90MBd/J2Cic7WjBp/jUdIuA8AUtd65M+PzXIAAAAASUVORK5CYII=") left top no-repeat;
+        }
+
+        html[dir=rtl] a {
+            background-position-x: right;
+        }
+
+        #parentDirLinkBox {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+    <title id="title">Índice de C:\Clase 25 26\AWEB Clase\AW HTML\</title>
+</head>
+
+<body bgcolor="#FFFF99">
+
+    <h1 id="header">Trabajos AWEB Roberto Casado Gonzalez</h1>
+    <input id="search" type="text" placeholder="Search" autocomplete="off">
+    <hr>
+    </div>
+    <br>
+    <table>
+        <thead>
+            <tr class="header" id="theader">
+                <th id="nameColumnHeader" tabindex="0" role="button">Nombre</th>
+                <th id="sizeColumnHeader" class="detailsColumn" tabindex="0" role="button">
+                    Tamaño
+                </th>
+                <th id="dateColumnHeader" class="detailsColumn" tabindex="0" role="button">
+                    Fecha de modificación
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td data-value="EnlacesEnimagenesvocales03otcRobertoCG/"><a class="icon dir"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/EnlacesEnimagenesvocales03otcRobertoCG/">EnlacesEnimagenesvocales03otcRobertoCG/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1759517652">3/10/25, 20:54:12</td>
+            </tr>
+             <tr>
+                <td data-value="Probandocheckbox17oct2025RobertoCG.html"><a class="icon file"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/Probandocheckbox17oct2025RobertoCG.html">Formulario con cajas de elecion</a>
+                </td>
+                <td class="detailsColumn" data-value="2400">2.4 kB</td>
+                <td class="detailsColumn" data-value="1760120465">17/10/25, 21:01:12</td>
+            </tr>
+            <tr>
+                <td data-value="Formulariobotones22oct2025RobertoCG.html"><a class="icon file"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/Formulariobotones22oct2025RobertoCG.html">Formulario con botones</a>
+                </td>
+                <td class="detailsColumn" data-value="2200">2.2 kB</td>
+                <td class="detailsColumn" data-value="1760120465">22/10/25, 16:09:12</td>
+            </tr>
+            <tr>
+                <td data-value="FormulariobotonesSelect22oct2025RobertoCG.html"><a class="icon file"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/FormulariobotonesSelect22oct2025RobertoCG.html">Formulario con botones de selecion</a>
+                </td>
+                <td class="detailsColumn" data-value="1500">1.5 kB</td>
+                <td class="detailsColumn" data-value="1760120465">22/10/25, 17:09:12</td>
+            </tr>
+            <tr>
+                <td data-value="ProbandoRadioButton16oct2025RobertoCG.html"><a class="icon file"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/ProbandoRadioButton16oct2025RobertoCG.html">Formulario con botones de elecion</a>
+                </td>
+                <td class="detailsColumn" data-value="1800">1.8 kB</td>
+                <td class="detailsColumn" data-value="1760120465">16/10/25, 18:07:12</td>
+            <tr>
+                <td data-value="Formulariocajasdetexto10oc2025RobertoCG.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/Formulariocajasdetexto10oc2025RobertoCG.html">Formulario</a>
+                </td>
+                <td class="detailsColumn" data-value="1700">1.7 kB</td>
+                <td class="detailsColumn" data-value="1760120465">10/10/25, 20:21:05</td>
+            </tr>
+            <tr>
+                <td data-value="CombinarCeldas09oct25RobertoCG.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/CombinarCeldas09oct25RobertoCG.html">Combinar Celdas</a>
+                </td>
+                <td class="detailsColumn" data-value="2481">2.4 kB</td>
+                <td class="detailsColumn" data-value="1760119474">10/10/25, 20:04:34</td>
+            </tr>
+            <tr>
+                <td data-value="Enlaces1oct2025RobertoCasado.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/Enlaces1oct2025RobertoCasado.html">Enlaces </a>
+                </td>
+                <td class="detailsColumn" data-value="15439">15.1 kB</td>
+                <td class="detailsColumn" data-value="1759330776">1/10/25, 16:59:36</td>
+            </tr>
+            <tr>
+                <td data-value="EnlacesEnimagenesvocales03otcRobertoCG.7z"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/EnlacesEnimagenesvocales03otcRobertoCG.7z">Enlaces en imagenes (Descarga del archivo en 7z)</a>
+                </td>
+                <td class="detailsColumn" data-value="250891">245 kB</td>
+                <td class="detailsColumn" data-value="1759519065">3/10/25, 21:17:45</td>
+            </tr>
+            <tr>
+                <td data-value="formateotexto19sep2025RobertoCasado.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/formateotexto19sep2025RobertoCasado.html">Formateo de texto</a>
+                </td>
+                <td class="detailsColumn" data-value="2329">2.3 kB</td>
+                <td class="detailsColumn" data-value="1758309311">19/9/25, 21:15:11</td>
+            </tr>
+            <tr>
+                <td data-value="formateotextocolores24sep2025RobertoCasado.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/formateotextocolores24sep2025RobertoCasado.html">Formateo de texto y colores</a>
+                </td>
+                <td class="detailsColumn" data-value="3161">3.1 kB</td>
+                <td class="detailsColumn" data-value="1758744530">24/9/25, 22:08:50</td>
+            </tr>
+            <tr>
+                <td data-value="listanonumerada26sep2025RobertoCasado.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/listanonumerada26sep2025RobertoCasado.html">Lista no numerada</a>
+                </td>
+                <td class="detailsColumn" data-value="1107">1.1 kB</td>
+                <td class="detailsColumn" data-value="1758911506">26/9/25, 20:31:46</td>
+            </tr>
+            <tr>
+                <td data-value="listaNumerada24sep2025RobertoCasado.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/listaNumerada24sep2025RobertoCasado.html">Lista Numerada</a>
+                </td>
+                <td class="detailsColumn" data-value="1647">1.6 kB</td>
+                <td class="detailsColumn" data-value="1758816743">25/9/25, 18:12:23</td>
+            </tr>
+            <tr>
+                <td data-value="miPrimeraWeb17set2025RobertoCasado.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/miPrimeraWeb17set2025RobertoCasado.html">Mi primera web</a>
+                </td>
+                <td class="detailsColumn" data-value="318">318 B</td>
+                <td class="detailsColumn" data-value="1758306642">19/9/25, 20:30:42</td>
+            </tr>
+            <tr>
+                <td data-value="tablahorario08oct25RobertoCasado.html"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/tablahorario08oct25RobertoCasado.html">Mi horario</a>
+                </td>
+                <td class="detailsColumn" data-value="2077">2.0 kB</td>
+                <td class="detailsColumn" data-value="1759935739">8/10/25, 17:02:19</td>
+            </tr>
+            <tr>
+                <td data-value="occ.c"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/occ.c">occ.c</a></td>
+                <td class="detailsColumn" data-value="0">0 B</td>
+                <td class="detailsColumn" data-value="1759332143">1/10/25, 17:22:23</td>
+            </tr>
+            <tr>
+                <td data-value="occc.java"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/occc.java">occc.java</a></td>
+                <td class="detailsColumn" data-value="0">0 B</td>
+                <td class="detailsColumn" data-value="1759332217">1/10/25, 17:23:37</td>
+            </tr>
+            <tr>
+                <td data-value="oo.py"><a class="icon file" draggable="true"
+                        href="/C:/Clase%2025%2026/AWEB%20Clase/AW%20HTML/oo.py">oo.py</a></td>
+                <td class="detailsColumn" data-value="0">0 B</td>
+                <td class="detailsColumn" data-value="1759332061">1/10/25, 17:21:01</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

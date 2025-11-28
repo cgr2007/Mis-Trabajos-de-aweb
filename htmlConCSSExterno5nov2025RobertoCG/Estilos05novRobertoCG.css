@@ -1,0 +1,30 @@
+body {
+    background-color: #006600;
+    font-family: 'arial';
+    color: white;
+}
+
+p {
+    font-size: 12pt;
+    font-family: 'arial', 'helvetica';
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 36pt;
+
+    text-decoration: underline;
+
+    text-align: center;
+
+    background-color: teal;
+}
+td {
+    font-size:10pt;
+
+font-family:'verdana','arial';
+
+text-align:center;
+
+background-color:#666666;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body bgcolor="FFFF99">
+    <div align="Center">
+        <h1>Roberto Casado. Formulario</h1>
+        <hr>
+        <br>
+    <br>
+    <br>
+        <form action="#" method="get">
+            <table style="border:solid 5px blue" height="350" width="800" bgcolor="white">
+                    <th><font color="2B7FFF">Nombre:</font></th>
+                    <td><input style="border:solid rgb(255, 0, 0)" type="text" placeholder="Escriba su Nombre"></td>
+                    <th><font color="2B7FFF">Apellidos:</font></th>
+                    <td><input style="border:solid rgb(255, 0, 0)" type="text" placeholder="Escriba su Apellidos"></td>
+                </tr>
+                <tr>
+                    <th><font color="2B7FFF">Fecha de nacimiento:</font></th>
+                    <td><input style="border:solid rgb(255, 0, 0)" type="date"></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <th><font color="2B7FFF">Dirección:</font></th>
+                    <td><input style="border:solid rgb(255, 0, 0)" type="text" placeholder="Escriba su Direccion"></td>
+                    <th><font color="2B7FFF">Población:</font></th>
+                    <td><input style="border:solid rgb(255, 0, 0)" type="text" placeholder="Escriba su Población"></td>
+                </tr>
+                <tr>
+                    <th><font color="2B7FFF">Telefono:</font></th>
+                    <td><input style="border:solid rgb(255, 0, 0)" type="number" placeholder="Escriba su Numero"></td>
+                    <th><font color="2B7FFF">Correo electronico:</font></th>
+                    <td><input style="border:solid rgb(255, 0, 0)" type="email" placeholder="Escriba su Email"></td>
+                </tr>
+                <tr>
+                    <th><font color="2B7FFF">Genero:</font></th>
+                    <td><font color="2B7FFF"><input type="radio" value="Hombre" name="Genero"/>Hombre</font></td>
+                    <td><font color="2B7FFF"><input type="radio" value="Mujer" name="Genero"/>Mujer</font></td>
+                    <td><font color="2B7FFF"><input type="radio" value="Otro" name="Genero"/>Otro</font></td>
+                    <td colspan="1"></td>
+                </tr>
+                <tr>
+                    <th><font color="2B7FFF">Curso:</font></th>
+                    <td><select name="Mi lista">
+                        <option value="Uno">1SMR</option>
+                        <option value="Dos">2SMR</option>
+                    </select>
+                    <th><font color="2B7FFF">Turno:</font></th>
+                    <td><select name="Mi lista">
+                        <option value="Uno">Mañana</option>
+                        <option value="Dos">Tarde</option>
+                    </select>
+                </tr>
+                <tr>
+                    <th><font color="2B7FFF">Materias optativas:</font></th>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Ingles" value="Ingles" />Ingles</font></td>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Frances" value="Frances" />Frances</font></td>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Aleman" value="Aleman" />Aleman</font></td>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Educacion fisica" value="Educacion fisica" />Educacion fisica</font></td>
+                </tr>
+                <tr>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Administracion" value="Administracion" />Administracion</font></td>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Historia" value="Historia" />Historia</font></td>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Astronomia" value="Astronomia" />Astronomia</font></td>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Filosofia" value="Filosofia" />Filosofia</font></td>
+                    <td><font color="2B7FFF"><input type="checkbox" name="Religion" value="Religion" />Religion</font></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="submit" value="Enviar"></td>
+                    <td align="center"><input type="reset" value="Borrar" name="Borrar"></td>
+                    <td align="center"><input type="button" value="Cerrar" onclick="window.close()"></td>
+                    <td align="center"><input type="button" value="Web del centro" onclick="window.open('http://www.ies-azarquiel.es//')"></td>
+                    <td align="center"><input type="button" value="Ir a Google" onclick="window.open('https://www.google.com')"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
