@@ -1,13 +1,13 @@
 /* Neon Cyberpunk Theme */
 :root {
-    --neon-cyan: #00f3ff;
-    --neon-pink: #ff00ff;
-    --neon-green: #00ff41;
-    --bg-dark: #050505;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --font-main: 'Courier New', Courier, monospace;
-    --font-display: 'Orbitron', sans-serif;
+    neon-cyan: #00f3ff;
+    neon-pink: #ff00ff;
+    neon-green: #00ff41;
+    bg-dark: #050505;
+    glass-bg: rgba(255, 255, 255, 0.05);
+    glass-border: rgba(255, 255, 255, 0.1);
+    font-main: 'Courier New', Courier, monospace;
+    font-display: 'Orbitron', sans-serif;
 }
 
 * {
@@ -17,8 +17,8 @@
 }
 
 body {
-    color: #fff;
-    font-family: var(--font-main);
+    color: #ffffff;
+    font-family: var(font-main);
     overflow-x: hidden;
     min-height: 100vh;
     display: flex;
@@ -32,7 +32,7 @@ body {
     left: 0;
     width: 200vw;
     height: 200vh;
-    background-color: var(--bg-dark);
+    background-color: var(bg-dark);
     background-image:
         linear-gradient(transparent 0%, rgba(0, 243, 255, 0.1) 2%, transparent 3%),
         linear-gradient(90deg, transparent 0%, rgba(0, 243, 255, 0.1) 2%, transparent 3%);
@@ -61,17 +61,17 @@ header {
 }
 
 h1 {
-    font-family: var(--font-display);
+    font-family: var(font-display);
     font-size: 4rem;
     text-transform: uppercase;
     letter-spacing: 5px;
-    color: #fff;
+    color: #ffffff;
     text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px var(--neon-cyan),
-        0 0 40px var(--neon-cyan),
-        0 0 80px var(--neon-cyan);
+        0 0 5px #ffffff,
+        0 0 10px #ffffff,
+        0 0 20px var(neon-cyan),
+        0 0 40px var(neon-cyan),
+        0 0 80px var(neon-cyan);
     animation: flicker 1.5s infinite alternate;
 }
 
@@ -86,11 +86,11 @@ h1 {
     57%,
     100% {
         text-shadow:
-            0 0 5px #fff,
-            0 0 10px #fff,
-            0 0 20px var(--neon-cyan),
-            0 0 40px var(--neon-cyan),
-            0 0 80px var(--neon-cyan);
+            0 0 5px #ffffff,
+            0 0 10px #ffffff,
+            0 0 20px var(neon-cyan),
+            0 0 40px var(neon-cyan),
+            0 0 80px var(neon-cyan);
     }
 
     20%,
@@ -102,9 +102,9 @@ h1 {
 
 .subtitle {
     font-size: 1.2rem;
-    color: var(--neon-pink);
+    color: var(neon-pink);
     margin-top: 1rem;
-    text-shadow: 0 0 5px var(--neon-pink);
+    text-shadow: 0 0 5px var(neon-pink);
 }
 
 /* Main Content */
@@ -124,8 +124,8 @@ main {
 
 /* Project Card */
 .card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: var(glass-bg);
+    border: 1px solid var(glass-border);
     border-radius: 10px;
     padding: 1.5rem;
     transition: all 0.3s ease;
@@ -154,20 +154,20 @@ main {
 .card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow:
-        0 0 15px var(--neon-cyan),
+        0 0 15px var(neon-cyan),
         inset 0 0 10px rgba(0, 243, 255, 0.2);
-    border-color: var(--neon-cyan);
+    border-color: var(neon-cyan);
 }
 
 .card h2 {
-    color: var(--neon-green);
+    color: var(neon-green);
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 5px var(--neon-green);
+    text-shadow: 0 0 5px var(neon-green);
 }
 
 .card p {
-    color: #ccc;
+    color: #cccccc;
     font-size: 0.9rem;
     line-height: 1.4;
 }
@@ -175,31 +175,31 @@ main {
 .card .tag {
     display: inline-block;
     background: rgba(255, 0, 255, 0.2);
-    color: var(--neon-pink);
+    color: var(neon-pink);
     padding: 0.2rem 0.5rem;
     border-radius: 3px;
     font-size: 0.7rem;
     margin-top: 1rem;
-    border: 1px solid var(--neon-pink);
+    border: 1px solid var(neon-pink);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 2rem;
-    border-top: 1px solid var(--glass-border);
+    border-top: 1px solid var(glass-border);
     margin-top: 4rem;
-    color: #666;
+    color: #666666;
     font-size: 0.8rem;
 }
 
 .status-bar {
     display: inline-block;
     padding: 0.5rem 1rem;
-    border: 1px solid var(--neon-green);
-    color: var(--neon-green);
+    border: 1px solid var(neon-green);
+    color: var(neon-green);
     background: rgba(0, 255, 65, 0.1);
-    box-shadow: 0 0 10px var(--neon-green);
+    box-shadow: 0 0 10px var(neon-green);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -218,35 +218,36 @@ footer {
 /* Section Titles */
 .section-title {
     grid-column: 1 / -1;
-    font-family: var(--font-display);
+    font-family: var(font-display);
     font-size: 2.5rem;
-    color: #fff;
+    color: #ffffff;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--neon-cyan);
+    border-bottom: 2px solid var(neon-cyan);
     padding-bottom: 0.5rem;
-    text-shadow: 0 0 10px var(--neon-cyan);
+    text-shadow: 0 0 10px var(neon-cyan);
 }
 
 .section-title.html {
-    border-color: var(--neon-cyan);
-    text-shadow: 0 0 10px var(--neon-cyan);
+    border-color: var(neon-cyan);
+    text-shadow: 0 0 10px var(neon-cyan);
 }
 
 .section-title.css {
-    border-color: var(--neon-pink);
-    text-shadow: 0 0 10px var(--neon-pink);
-    color: var(--neon-pink);
+    border-color: var(neon-pink);
+    text-shadow: 0 0 10px var(neon-pink);
+    color: var(neon-pink);
 }
 
 .section-title.java {
-    border-color: var(--neon-green);
-    text-shadow: 0 0 10px var(--neon-green);
-    color: var(--neon-green);
+    border-color: var(neon-green);
+    text-shadow: 0 0 10px var(neon-green);
+    color: var(neon-green);
 }
 
 .section-title.compressed {
     border-color: #ff9900;
     text-shadow: 0 0 10px #ff9900;
     color: #ff9900;
+
 }
