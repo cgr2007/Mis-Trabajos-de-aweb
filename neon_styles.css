@@ -1,13 +1,13 @@
 /* Neon Cyberpunk Theme */
 :root {
-    --neon-cyan: #00f3ff;
-    --neon-pink: #ff00ff;
-    --neon-green: #00ff41;
-    --bg-dark: #050505;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --font-main: 'Courier New', Courier, monospace;
-    --font-display: 'Orbitron', sans-serif;
+    neon-cyan: #00f3ff;
+    neon-pink: #ff00ff;
+    neon-green: #00ff41;
+    bg-dark: #050505;
+    glass-bg: rgba(255, 255, 255, 0.05);
+    glass-border: rgba(255, 255, 255, 0.1);
+    font-main: 'Courier New', Courier, monospace;
+    font-display: 'Orbitron', sans-serif;
 }
 
 * {
@@ -248,4 +248,5 @@ footer {
     border-color: #ff9900;
     text-shadow: 0 0 10px #ff9900;
     color: #ff9900;
+
 }
