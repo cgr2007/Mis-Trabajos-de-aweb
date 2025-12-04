@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajos de aweb de roberto</title>
+    <link rel="stylesheet" href="css/neon_styles.css">
+    <script src="js/neon_effects.js"></script>
+    <style>
+        :root {
+            --neon-cyan: #00f3ff;
+            --neon-pink: #ff00ff;
+            --neon-green: #00ff41;
+            --bg-dark: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --font-main: 'Courier New', Courier, monospace;
+            --font-display: 'Orbitron', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #fff;
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Grid Animation */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200vw;
+            height: 200vh;
+            background:
+                linear-gradient(transparent 0%, rgba(0, 243, 255, 0.1) 2%, transparent 3%),
+                linear-gradient(90deg, transparent 0%, rgba(0, 243, 255, 0.1) 2%, transparent 3%);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            animation: gridMove 20s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px);
+            }
+
+            100% {
+                transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px);
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 4rem 1rem;
+            position: relative;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px var(--neon-cyan),
+                0 0 40px var(--neon-cyan),
+                0 0 80px var(--neon-cyan);
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+
+            0%,
+            18%,
+            22%,
+            25%,
+            53%,
+            57%,
+            100% {
+                text-shadow:
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 20px var(--neon-cyan),
+                    0 0 40px var(--neon-cyan),
+                    0 0 80px var(--neon-cyan);
+            }
+
+            20%,
+            24%,
+            55% {
+                text-shadow: none;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--neon-pink);
+            margin-top: 1rem;
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Project Card */
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            text-decoration: none;
+            display: block;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow:
+                0 0 15px var(--neon-cyan),
+                inset 0 0 10px rgba(0, 243, 255, 0.2);
+            border-color: var(--neon-cyan);
+        }
+
+        .card h2 {
+            color: var(--neon-green);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .card p {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: rgba(255, 0, 255, 0.2);
+            color: var(--neon-pink);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            margin-top: 1rem;
+            border: 1px solid var(--neon-pink);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 4rem;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        .status-bar {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            background: rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 10px var(--neon-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Titles */
+        .section-title {
+            grid-column: 1 / -1;
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: #fff;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--neon-cyan);
+            padding-bottom: 0.5rem;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .section-title.html {
+            border-color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .section-title.css {
+            border-color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+            color: var(--neon-pink);
+        }
+
+        .section-title.java {
+            border-color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+            color: var(--neon-green);
+        }
+
+        .section-title.compressed {
+            border-color: #ff9900;
+            text-shadow: 0 0 10px #ff9900;
+            color: #ff9900;
+        }
+
+        .neon-clock {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--neon-cyan);
+            text-shadow:
+                0 0 5px var(--neon-cyan),
+                0 0 10px var(--neon-cyan),
+                0 0 20px var(--neon-cyan);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.8;
+                text-shadow: 0 0 5px var(--neon-cyan);
+            }
+
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+
+    <header>
+        <h1>Trabajos de aweb de roberto</h1>
+        <div id="neon-clock" class="neon-clock">00:00:00</div>
+        <div class="subtitle">SYSTEM READY // ACCESSING PROJECTS...</div>
+    </header>
+
+    <main>
+        <div class="project-grid">
+
+            <!-- SECTION 1: HTML -->
+            <h2 class="section-title html">HTML PROTOCOLS</h2>
+
+            <a href="HTML/Formdelaimagen230ct2025Robertocg.html" class="card">
+                <h2>Formulario Imagen</h2>
+                <p>Formulario con integración de imágenes.</p>
+                <span class="tag">HTML</span> <span class="tag">FORMS</span>
+            </a>
+
+            <a href="HTML/ficherocontenedores27nov2025RobertoCG.html" class="card">
+                <h2>Contenedores</h2>
+                <p>Estructura de layout con contenedores.</p>
+                <span class="tag">LAYOUT</span>
+            </a>
+
+            <a href="HTML/Enlaces1oct2025RobertoCasado.html" class="card">
+                <h2>Enlaces</h2>
+                <p>Práctica de enlaces y navegación.</p>
+                <span class="tag">BASICS</span>
+            </a>
+
+            <a href="HTML/IndiceDeMisTrabajos.html" class="card">
+                <h2>Índice Original</h2>
+                <p>El índice original de trabajos.</p>
+                <span class="tag">LEGACY</span>
+            </a>
+
+            <a href="HTML/menuhorizontal21nov2025RobertoCG.html" class="card">
+                <h2>Menú Horizontal</h2>
+                <p>Navegación horizontal moderna.</p>
+                <span class="tag">UI</span>
+            </a>
+
+            <a href="HTML/menuvertical21nov2025RobertoCG .html" class="card">
+                <h2>Menú Vertical</h2>
+                <p>Navegación vertical.</p>
+                <span class="tag">UI</span>
+            </a>
+
+            <a href="HTML/menuverticalhorizontal21nov2025RobertoCG  copy.html" class="card">
+                <h2>Menú Híbrido</h2>
+                <p>Combinación de menús.</p>
+                <span class="tag">UI</span>
+            </a>
+
+            <a href="HTML/tablahorario08oct25RobertoCasado.html" class="card">
+                <h2>Horario</h2>
+                <p>Tabla compleja de horarios.</p>
+                <span class="tag">TABLES</span>
+            </a>
+
+            <a href="HTML/CombinarCeldas09oct25RobertoCG.html" class="card">
+                <h2>Combinar Celdas</h2>
+                <p>Práctica de fusión de celdas en tablas.</p>
+                <span class="tag">TABLES</span>
+            </a>
+
+            <a href="HTML/DocumentoXHTMLdepurado25oct2025RobertoCG.html" class="card">
+                <h2>XHTML Depurado</h2>
+                <p>Documento XHTML validado y limpio.</p>
+                <span class="tag">XHTML</span>
+            </a>
+
+            <a href="HTML/FormularioCajasdetexto10oc2025RobertoCG.html" class="card">
+                <h2>Cajas de Texto</h2>
+                <p>Inputs de texto en formularios.</p>
+                <span class="tag">FORMS</span>
+            </a>
+
+            <a href="HTML/Formulariobotones22oct2025RobertoCG.html" class="card">
+                <h2>Botones Formulario</h2>
+                <p>Estilos y tipos de botones.</p>
+                <span class="tag">FORMS</span>
+            </a>
+
+            <a href="HTML/FormulariobotonesSelect22oct2025RobertoCG.html" class="card">
+                <h2>Selectores</h2>
+                <p>Menús desplegables en formularios.</p>
+                <span class="tag">FORMS</span>
+            </a>
+
+            <a href="HTML/ProbandoRadioButton16oct2025RobertoCG.html" class="card">
+                <h2>Radio Buttons</h2>
+                <p>Selección única con radio buttons.</p>
+                <span class="tag">FORMS</span>
+            </a>
+
+            <a href="HTML/Probandocheckbox17oct2025RobertoCG.html" class="card">
+                <h2>Checkboxes</h2>
+                <p>Selección múltiple con casillas.</p>
+                <span class="tag">FORMS</span>
+            </a>
+
+            <a href="HTML/documentoHTMLnoDepurado290ct2025RobertoCG.html" class="card">
+                <h2>HTML No Depurado</h2>
+                <p>Ejemplo de código sin limpiar.</p>
+                <span class="tag">LEGACY</span>
+            </a>
+
+            <a href="HTML/formateotexto19sep2025RobertoCasado.html" class="card">
+                <h2>Formato Texto 1</h2>
+                <p>Primeros pasos con formato de texto.</p>
+                <span class="tag">BASICS</span>
+            </a>
+
+            <a href="HTML/franco.html" class="card">
+                <h2>Franco</h2>
+                <p>Proyecto personal.</p>
+                <span class="tag">MISC</span>
+            </a>
+
+            <a href="HTML/listaNumerada24sep2025RobertoCasado.html" class="card">
+                <h2>Lista Numerada</h2>
+                <p>Listas ordenadas (OL).</p>
+                <span class="tag">LISTS</span>
+            </a>
+
+            <a href="HTML/listanonumerada26sep2025RobertoCasado.html" class="card">
+                <h2>Lista No Numerada</h2>
+                <p>Listas desordenadas (UL).</p>
+                <span class="tag">LISTS</span>
+            </a>
+
+            <a href="HTML/miPrimeraWeb17set2025RobertoCasado.html" class="card">
+                <h2>Mi Primera Web</h2>
+                <p>El comienzo de todo.</p>
+                <span class="tag">LEGACY</span>
+            </a>
+
+
+            <!-- SECTION 2: CSS -->
+            <h2 class="section-title css">CSS STYLES</h2>
+
+            <a href="HTML/Tablaestilos26nov2025Robertocg.html" class="card">
+                <h2>Tabla Estilos</h2>
+                <p>Diseño de tablas con estilos personalizados.</p>
+                <span class="tag">CSS</span>
+            </a>
+
+            <a href="HTML/cajascss13nov2025RobertoCG.html" class="card">
+                <h2>Modelo de Cajas</h2>
+                <p>Experimentos con CSS Box Model.</p>
+                <span class="tag">CSS</span>
+            </a>
+
+            <a href="HTML/formateotextocolores24sep2025RobertoCasado.html" class="card">
+                <h2>Formato Texto</h2>
+                <p>Estilos de texto y colores básicos.</p>
+                <span class="tag">TYPOGRAPHY</span>
+            </a>
+
+            <a href="HTML/agregarEstilos12nov2025RobertoCG.html" class="card">
+                <h2>Agregar Estilos</h2>
+                <p>Introducción a CSS.</p>
+                <span class="tag">CSS</span>
+            </a>
+
+            <a href="HTML/clasesdeestilos20nov2025RobertoCG.html" class="card">
+                <h2>Clases CSS</h2>
+                <p>Uso de clases para estilos reutilizables.</p>
+                <span class="tag">CSS</span>
+            </a>
+
+            <a href="HTML/ejemploatributostyle30oct2025RobertoCG.html" class="card">
+                <h2>Atributo Style</h2>
+                <p>Estilos en línea (Inline CSS).</p>
+                <span class="tag">CSS</span>
+            </a>
+
+            <a href="HTML/ejeploetoquetastyle05nov2025RobertoCG.html" class="card">
+                <h2>Etiqueta Style</h2>
+                <p>Estilos en cabecera.</p>
+                <span class="tag">CSS</span>
+            </a>
+
+            <a href="HTML/selectordeestilos20nov2025RobertoCG .html" class="card">
+                <h2>Selectores CSS</h2>
+                <p>Selectores avanzados.</p>
+                <span class="tag">CSS</span>
+            </a>
+
+
+            <!-- SECTION 3: JAVA -->
+            <h2 class="section-title java">JAVA MODULES</h2>
+
+            <a href="JAVA/jsholamundo28nov2025RobertoCG.html" class="card">
+                <h2>Primero.java</h2>
+                <p>Código fuente Java.</p>
+                <span class="tag">JAVA</span> <span class="tag">SOURCE</span>
+            </a>
+
+            <a href="JAVA/jsNombreyEdad3dic2025RobertoCG.html" class="card">
+                <h2>Segundo.java</h2>
+                <p>Código fuente Java.</p>
+                <span class="tag">JAVA</span> <span class="tag">SOURCE</span>
+            </a>
+            <a href="JAVA/jsNombreyEdadprompt4dic2025RobertoCG.html" class="card">
+                <h2>Tercero.java</h2>
+                <p>Código fuente Java. usando pormt</p>
+                <span class="tag">JAVA</span> <span class="tag">SOURCE</span>
+            </a>
+
+            <!-- SECTION 4: COMPRESSED -->
+            <h2 class="section-title compressed">DATA ARCHIVES</h2>
+
+            <a href="Trabajos comprimidos/CapitalesEuropeas19nov2025RobertoCG.7z" class="card">
+                <h2>Capitales Europeas</h2>
+                <p>Archivo comprimido del proyecto.</p>
+                <span class="tag">ARCHIVE</span>
+            </a>
+
+            <a href="Trabajos comprimidos/CapitalesEuropeas19nov2025RobertoCG copy.7z" class="card">
+                <h2>Capitales Copy</h2>
+                <p>Copia de seguridad del proyecto.</p>
+                <span class="tag">ARCHIVE</span>
+            </a>
+
+            <a href="Trabajos comprimidos/EnlacesEnimagenesvocales03otcRobertoCG.7z" class="card">
+                <h2>Enlaces Imágenes</h2>
+                <p>Recursos comprimidos.</p>
+                <span class="tag">ARCHIVE</span>
+            </a>
+
+            <a href="Trabajos comprimidos/htmlConCSSExterno5nov2025RobertoCG.7z" class="card">
+                <h2>HTML + CSS Ext</h2>
+                <p>Proyecto completo comprimido.</p>
+                <span class="tag">ARCHIVE</span>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="status-bar">SYSTEM ONLINE</div>
+        <p style="margin-top: 1rem;">&copy; 2025 Roberto Casado. All systems nominal.</p>
+    </footer>
+
+    <script src="js/neon_effects.js"></script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const clockElement = document.getElementById('neon-clock');
+            if (clockElement) {
+                clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+
+
+</html>
