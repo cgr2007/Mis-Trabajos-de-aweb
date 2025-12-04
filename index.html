@@ -259,6 +259,18 @@
             color: #ff9900;
         }
 
+        .neon-date {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: #ffea00;
+            text-shadow:
+                0 0 5px var(--neon-pink),
+                0 0 10px var(--neon-pink);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
         .neon-clock {
             font-family: var(--font-display);
             font-size: 2.5rem;
@@ -292,6 +304,7 @@
 
     <header>
         <h1>Trabajos de aweb de roberto</h1>
+        <div id="neon-date" class="neon-date">DD/MM/AAAA</div>
         <div id="neon-clock" class="neon-clock">00:00:00</div>
         <div class="subtitle">SYSTEM READY // ACCESSING PROJECTS...</div>
     </header>
@@ -540,6 +553,16 @@
     <script>
         function updateClock() {
             const now = new Date();
+            // Date
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            const dateElement = document.getElementById('neon-date');
+            if (dateElement) {
+                dateElement.textContent = `${day}/${month}/${year}`;
+            }
+
+            // Time
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
