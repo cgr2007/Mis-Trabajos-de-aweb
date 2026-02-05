@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayor de dos números</title>
+    <title>Mayor de dos nÃºmeros</title>
     <style>
         * {
             margin: 0;
@@ -99,17 +99,43 @@
       Fecha: ${fechalocal}<br>
       </h3> `;
         pie.innerHTML = `<h2>Copyright &copy; Luis Ramos</h2> `;
-        /*ahora ya el código específico*/
+        /*ahora ya el cÃ³digo especÃ­fico*/
        let num1, num2;
-       num1 = parseInt(prompt("Introduce el primer número"));
-       num2 = parseInt(prompt("Introduce el segundo número"));
+       num1 = parseInt(prompt("Introduce el primer nÃºmero"));
+       num2 = parseInt(prompt("Introduce el segundo nÃºmero"));
        if (num1 > num2) {
-          cajaDatos.innerHTML = '<h3> El número mayor es ' + num1 + '</h3>';
+          cajaDatos.innerHTML = '<h3> El nÃºmero mayor es ' + num1 + '</h3>';
        } else {
-           cajaDatos.innerHTML = '<h3> El número mayor es ' + num2 + '</h3>';
+           cajaDatos.innerHTML = '<h3> El nÃºmero mayor es ' + num2 + '</h3>';
        }
 
     </script>
+<!-- Boton Volver al Inicio -->
+<a href="../Proyectos/index.html" class="home-button">VOLVER AL INICIO</a>
+<style>
+    .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #00f3ff;
+        border: 2px solid #00f3ff;
+        text-decoration: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 9999;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #00f3ff;
+        transition: all 0.3s ease;
+    }
+    .home-button:hover {
+        background: #00f3ff;
+        color: #000;
+        box-shadow: 0 0 20px #00f3ff;
+    }
+</style>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -98,20 +98,46 @@
       Fecha: ${fechalocal}<br>
       </h3> `;
         pie.innerHTML = `<h2>Copyright &copy; Roberto Casado</h2> `;
-        let limite = parseInt(prompt("Introduzca un número entero y positivo"));
+        let limite = parseInt(prompt("Introduzca un nÃºmero entero y positivo"));
         if (Number.isInteger(limite) && limite > 0) {
             let mensaje = '<h3>Pares menores que ' + limite + ':</h3> <h3>';
             let numeroPar = 2;
             while (numeroPar < limite) {
-                mensaje = mensaje + numeroPar + ", "; // Vamos añadiendo los números al mensaje.
+                mensaje = mensaje + numeroPar + ", "; // Vamos aÃ±adiendo los nÃºmeros al mensaje.
                 numeroPar = numeroPar + 2; // Sumamos 2 para ir al siguiente par.
             }
             mensaje = mensaje + "</h3>";
             cajaDatos.innerHTML = mensaje;
         } else {
-            cajaDatos.innerHTML = "<h3>Por favor, recargue la página e introduzca un número entero y positivo válido.</h3>";
+            cajaDatos.innerHTML = "<h3>Por favor, recargue la pÃ¡gina e introduzca un nÃºmero entero y positivo vÃ¡lido.</h3>";
         }
     </script>
+<!-- Boton Volver al Inicio -->
+<a href="../Proyectos/index.html" class="home-button">VOLVER AL INICIO</a>
+<style>
+    .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #00f3ff;
+        border: 2px solid #00f3ff;
+        text-decoration: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 9999;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #00f3ff;
+        transition: all 0.3s ease;
+    }
+    .home-button:hover {
+        background: #00f3ff;
+        color: #000;
+        box-shadow: 0 0 20px #00f3ff;
+    }
+</style>
 </body>
 
 </html>

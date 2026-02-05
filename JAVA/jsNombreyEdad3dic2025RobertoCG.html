@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,12 +11,38 @@
     <script>
         /*
         este programa tiene dos variables. nombre y edad.
-        mostar una frase que diga: nombre tiene edad años.
+        mostar una frase que diga: nombre tiene edad aÃ±os.
         */
         let nombre = "Roberto";
         let edad = 18;
-        document.write("Hola " + nombre + " tienes " + edad + " años.");
+        document.write("Hola " + nombre + " tienes " + edad + " aÃ±os.");
     </script>
+<!-- Boton Volver al Inicio -->
+<a href="../Proyectos/index.html" class="home-button">VOLVER AL INICIO</a>
+<style>
+    .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #00f3ff;
+        border: 2px solid #00f3ff;
+        text-decoration: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 9999;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #00f3ff;
+        transition: all 0.3s ease;
+    }
+    .home-button:hover {
+        background: #00f3ff;
+        color: #000;
+        box-shadow: 0 0 20px #00f3ff;
+    }
+</style>
 </body>
 
 </html>

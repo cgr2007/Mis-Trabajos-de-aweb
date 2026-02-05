@@ -1,0 +1,46 @@
+GameInfo
+{
+	ZScript_File = "zscript.zs"
+}
+
+// Definición del Episodio
+Episode MAP01
+{
+	Name = "El Escenario de Roberto"
+}
+
+// Definición del Mapa 01
+Map MAP01 "Base de Datos Neon"
+{
+	Next = "MAP02"
+	Sky1 = "SKY1", 0
+	Music = "D_RUNNIN"
+	Gravity = 800
+}
+
+// Definición del Mapa 02
+Map MAP02 "Laboratorios Prohibidos"
+{
+	Next = "MAP03"
+	Sky1 = "SKY1", 0
+	Music = "D_STALKS"
+	Gravity = 800
+}
+
+// Definición del Mapa 03
+Map MAP03 "Sala del Núcleo"
+{
+	Next = "MAP04"
+	Sky1 = "SKY1", 0
+	Music = "D_COUNTD"
+	Gravity = 400
+}
+
+// Definición del Mapa 04
+Map MAP04 "El Abismo Final"
+{
+	Next = "EndGame"
+	Sky1 = "SKY1", 0
+	Music = "D_VICTOR"
+	Gravity = 800
+}

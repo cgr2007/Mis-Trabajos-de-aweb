@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsCustomizadoPlantillaINNERLuisRamos</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    #cabecera {
+      width: 90%;
+      margin: 0 auto;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(41, 77, 7);
+      color: white;
+      border: 3px solid black;
+      text-align: center;
+      min-height: 100px;
+    }
+
+    #principal {
+      width: 100%;
+      border: 2px solid red;
+    }
+
+    #lateral {
+      float: left;
+      width: 30%;
+      background-color: rgb(72, 41, 125);
+      color: white;
+      border: 3px solid black;
+      text-align: center;
+      min-height: 200px;
+    }
+
+
+    #datos {
+      float: right;
+      width: 70%;
+      background-color: rgb(7, 77, 77);
+      color: white;
+      border: 3px solid rgb(68, 20, 197);
+      text-align: center;
+      min-height: 200px;
+    }
+
+    #pie {
+      width: 500px;
+      background-color: rgb(9, 17, 161);
+      margin: 0 auto;
+      color: white;
+      border: 3px solid black;
+      text-align: center;
+      height: 50px;
+    }
+
+    .cb {
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cabecera"></div>
+  <div id="principal">
+    <div id="lateral"></div>
+    <div id="datos"></div>
+    <div class="cb"></div>
+  </div>
+  <div id="pie"></div>
+
+
+  <script>
+    const cabecera = document.getElementById("cabecera");
+    const lateral = document.getElementById("lateral");
+    const cajaDatos = document.getElementById("datos");
+    const pie = document.getElementById("pie");
+    const ahora = new Date();
+    const fechalocal = ahora.toLocaleString();
+    cabecera.innerHTML = `<h3>Enunciado</h3> `;
+    cabecera.innerHTML += `<h3>
+      jsCustomizadoPlantillaINNERLuisRamos
+      declara 2 variables nombre y edad y muestra
+      su contenido.
+      </h3> `;
+    lateral.innerHTML = `<h3>
+      APLICACIONES WEB, ${ahora.getFullYear()}<br>
+      VM1SMR, Ies Azarquiel<br>
+      Fecha: ${fechalocal}<br>
+      </h3> `;
+    pie.innerHTML = `<h2>Copyright &copy; Luis Ramos</h2> `;
+    /*ahora ya el código específico*/
+    let nombre, edad;
+    nombre = "Isaac";
+    edad = 17;
+    cajaDatos.innerHTML = `<h3> Mi nombre es ${nombre}</h3>`;
+    cajaDatos.innerHTML += `<h3> tengo ${edad} años.</h3>`;
+    // document.write("<br>Tengo ", edad, " años");
+    // edad = edad + 1;
+    // document.write("<br>Tengo ", edad, " años");
+    // document.write("<br>Tengo ", edad-2, " años");
+
+  </script>
+  <!-- Boton Volver al Inicio -->
+  <a href="index.html" class="home-button">VOLVER AL INICIO</a>
+  <style>
+    .home-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #00f3ff;
+      border: 2px solid #00f3ff;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      z-index: 9999;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00f3ff;
+      transition: all 0.3s ease;
+    }
+
+    .home-button:hover {
+      background: #00f3ff;
+      color: #000;
+      box-shadow: 0 0 20px #00f3ff;
+    }
+  </style>
+</body>
+
+</html>

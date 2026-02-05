@@ -1,0 +1,18 @@
+{
+  "dedicatedServerId": "GM_Everon_CGR",
+  "region": "EU",
+  "game": {
+    "name": "Projecto Hombre by CGR | Crossplay",
+    "password": "",
+    "passwordAdmin": "admin123",
+    "scenarioId": "{ECC61978EDCC2B5A}Missions/GM_Everon.conf",
+    "maxPlayers": 5,
+    "visible": true,
+    "crossPlatform": true
+  },
+  "network": {
+    "bindPort": 2001,
+    "publicPort": 2001
+  },
+  "mods": []
+}
