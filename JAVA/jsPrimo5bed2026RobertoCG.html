@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media de números hasta 0</title>
+    <title>¿Es un número primo?</title>
     <style>
         * {
             margin: 0;
@@ -112,42 +112,34 @@
 
 
     <script>
-        var cabecera = document.getElementById("cabecera");
-        var lateral = document.getElementById("lateral");
-        var cajaDatos = document.getElementById("datos");
-        var pie = document.getElementById("pie");
+        let cabecera = document.getElementById("cabecera");
+        let lateral = document.getElementById("lateral");
+        let cajaDatos = document.getElementById("datos");
+        let pie = document.getElementById("pie");
 
-        var ahora = new Date();
-        var fechalocal = ahora.toLocaleString();
+        let ahora = new Date();
+        let fechalocal = ahora.toLocaleString();
 
-        cabecera.innerHTML = "<h3>Enunciado</h3><h3>jsmedia28ene2026RobertoCG<br>Media de números hasta 0</h3>";
+        cabecera.innerHTML = "<h3>Enunciado</h3><h3>jsPrimo5bed2026RobertoCG<br>¿Es un número primo?</h3>";
 
         lateral.innerHTML = "<h3>APLICACIONES WEB, " + ahora.getFullYear() + "<br>VM1SMR, Ies Azarquiel<br>Fecha: " + fechalocal + "<br></h3>";
 
         pie.innerHTML = "<h2>Copyright &copy; Roberto Casado</h2>";
 
+        let num = parseInt(prompt("Introduce un número:"));
+        let count = 0;
 
-        var mensaje = "<h3>Resultados:</h3>";
-        var num;
-        var suma = 0;
-        var contador = 0;
-
-        num = parseInt(prompt("Introduce un número (0 para terminar):"));
-
-        while (num != 0) {
-            mensaje += "Número introducido: " + num + "<br>";
-            suma = suma + num;
-            contador++;
-            num = parseInt(prompt("Introduce un número (0 para terminar):"));
+        for (let i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
+            }
         }
 
-        if (contador > 0) {
-            mensaje += "<hr>La media de los números introducidos es: <b>" + (suma / contador) + "</b>";
+        if (count == 2) {
+            cajaDatos.innerHTML = "El número " + num + " <b>es primo</b>.";
         } else {
-            mensaje += "<hr>No se introdujeron números.";
+            cajaDatos.innerHTML = "El número " + num + " <b>no es primo</b>.";
         }
-
-        cajaDatos.innerHTML = mensaje;
     </script>
     <!-- Boton Volver al Inicio -->
     <a href="../index.html" class="home-button">VOLVER AL INICIO</a>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factorial de un nÃºmero</title>
+    <title>Factorial de un número</title>
     <style>
         * {
             margin: 0;
@@ -120,7 +120,7 @@
         let ahora = new Date();
         let fechalocal = ahora.toLocaleString();
 
-        cabecera.innerHTML = "<h3>Enunciado</h3><h3>jsfactorial4feb2026RobertoCG<br>Factorial de un nÃºmero</h3>";
+        cabecera.innerHTML = "<h3>Enunciado</h3><h3>jsfactorial4feb2026RobertoCG<br>Factorial de un número</h3>";
 
         lateral.innerHTML = "<h3>APLICACIONES WEB, " + ahora.getFullYear() + "<br>VM1SMR, Ies Azarquiel<br>Fecha: " + fechalocal + "<br></h3>";
 
@@ -131,10 +131,10 @@
         let num;
         let factorial = 1;
 
-        num = parseInt(prompt("Introduce un nÃºmero para calcular su factorial:"));
+        num = parseInt(prompt("Introduce un número para calcular su factorial:"));
 
         if (!isNaN(num) && num >= 0) {
-            mensaje += "NÃºmero introducido: <b>" + num + "</b><br><hr>";
+            mensaje += "Número introducido: <b>" + num + "</b><br><hr>";
 
             for (let i = num; i > 0; i--) {
                 factorial = factorial * i;
@@ -152,37 +152,38 @@
 
             mensaje += "<b>" + factorial + "</b>";
         } else {
-            mensaje += "Por favor, introduce un nÃºmero vÃ¡lido (mayor o igual a 0).";
+            mensaje += "Por favor, introduce un número válido (mayor o igual a 0).";
         }
 
         cajaDatos.innerHTML = mensaje;
     </script>
-<!-- Boton Volver al Inicio -->
-<a href="../Proyectos/index.html" class="home-button">VOLVER AL INICIO</a>
-<style>
-    .home-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        padding: 10px 20px;
-        background: rgba(0, 0, 0, 0.8);
-        color: #00f3ff;
-        border: 2px solid #00f3ff;
-        text-decoration: none;
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: bold;
-        text-transform: uppercase;
-        z-index: 9999;
-        border-radius: 5px;
-        box-shadow: 0 0 10px #00f3ff;
-        transition: all 0.3s ease;
-    }
-    .home-button:hover {
-        background: #00f3ff;
-        color: #000;
-        box-shadow: 0 0 20px #00f3ff;
-    }
-</style>
+    <!-- Boton Volver al Inicio -->
+    <a href="../index.html" class="home-button">VOLVER AL INICIO</a>
+    <style>
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00f3ff;
+            border: 2px solid #00f3ff;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            z-index: 9999;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00f3ff;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            background: #00f3ff;
+            color: #000;
+            box-shadow: 0 0 20px #00f3ff;
+        }
+    </style>
 </body>
 
 </html>

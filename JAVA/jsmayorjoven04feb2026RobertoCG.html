@@ -136,7 +136,7 @@
         let edadMenor = 200;
         let nombreMenor = "";
 
-        nombre = prompt("Introduce un nombre (cancelar o vacÃ­o para terminar):");
+        nombre = prompt("Introduce un nombre (cancelar o vacío para terminar):");
 
         while (nombre != null && nombre != "") {
             edad = parseInt(prompt("Introduce la edad de " + nombre + ":"));
@@ -154,45 +154,46 @@
                 nombreMenor = nombre;
             }
 
-            nombre = prompt("Introduce otro nombre (cancelar o vacÃ­o para terminar):");
+            nombre = prompt("Introduce otro nombre (cancelar o vacío para terminar):");
         }
 
         if (contador > 0) {
             mensaje += "<hr>La media de las edades introducidas es: <b>" + (suma / contador).toFixed(2) + "</b>";
-            mensaje += "<br>La persona mayor es: <b>" + nombreMayor + "</b> con <b>" + edadMayor + "</b> aÃ±os";
-            mensaje += "<br>La persona menor es: <b>" + nombreMenor + "</b> con <b>" + edadMenor + "</b> aÃ±os";
+            mensaje += "<br>La persona mayor es: <b>" + nombreMayor + "</b> con <b>" + edadMayor + "</b> años";
+            mensaje += "<br>La persona menor es: <b>" + nombreMenor + "</b> con <b>" + edadMenor + "</b> años";
         } else {
             mensaje += "<hr>No se introdujeron edades.";
         }
 
         cajaDatos.innerHTML = mensaje;
     </script>
-<!-- Boton Volver al Inicio -->
-<a href="../Proyectos/index.html" class="home-button">VOLVER AL INICIO</a>
-<style>
-    .home-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        padding: 10px 20px;
-        background: rgba(0, 0, 0, 0.8);
-        color: #00f3ff;
-        border: 2px solid #00f3ff;
-        text-decoration: none;
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: bold;
-        text-transform: uppercase;
-        z-index: 9999;
-        border-radius: 5px;
-        box-shadow: 0 0 10px #00f3ff;
-        transition: all 0.3s ease;
-    }
-    .home-button:hover {
-        background: #00f3ff;
-        color: #000;
-        box-shadow: 0 0 20px #00f3ff;
-    }
-</style>
+    <!-- Boton Volver al Inicio -->
+    <a href="../index.html" class="home-button">VOLVER AL INICIO</a>
+    <style>
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00f3ff;
+            border: 2px solid #00f3ff;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            z-index: 9999;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00f3ff;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            background: #00f3ff;
+            color: #000;
+            box-shadow: 0 0 20px #00f3ff;
+        }
+    </style>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divisores de un nÃºmero</title>
+    <title>Divisores de un número</title>
     <style>
         * {
             margin: 0;
@@ -120,7 +120,7 @@
         var ahora = new Date();
         var fechalocal = ahora.toLocaleString();
 
-        cabecera.innerHTML = "<h3>Enunciado</h3><h3>jsdivisores29ene2026RobertoCG<br>Media de los divisores de un nÃºmero</h3>";
+        cabecera.innerHTML = "<h3>Enunciado</h3><h3>jsdivisores29ene2026RobertoCG<br>Media de los divisores de un número</h3>";
 
         lateral.innerHTML = "<h3>APLICACIONES WEB, " + ahora.getFullYear() + "<br>VM1SMR, Ies Azarquiel<br>Fecha: " + fechalocal + "<br></h3>";
 
@@ -128,12 +128,12 @@
 
 
         var mensaje = "<h3>Resultados:</h3>";
-        var num = parseInt(prompt("Introduce un nÃºmero para calcular la media de sus divisores:"));
+        var num = parseInt(prompt("Introduce un número para calcular la media de sus divisores:"));
         var suma = 0;
         var contador = 0;
 
         if (!isNaN(num) && num > 0) {
-            mensaje += "NÃºmero introducido: <b>" + num + "</b><br><br>";
+            mensaje += "Número introducido: <b>" + num + "</b><br><br>";
             mensaje += "Divisores: ";
 
             for (var i = 1; i <= num; i++) {
@@ -149,37 +149,38 @@
             mensaje += "La cantidad de divisores es: <b>" + contador + "</b><br>";
             mensaje += "La media de los divisores es: <b>" + media.toFixed(2) + "</b>";
         } else {
-            mensaje += "<hr>NÃºmero no vÃ¡lido introducido.";
+            mensaje += "<hr>Número no válido introducido.";
         }
 
         cajaDatos.innerHTML = mensaje;
     </script>
-<!-- Boton Volver al Inicio -->
-<a href="../Proyectos/index.html" class="home-button">VOLVER AL INICIO</a>
-<style>
-    .home-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        padding: 10px 20px;
-        background: rgba(0, 0, 0, 0.8);
-        color: #00f3ff;
-        border: 2px solid #00f3ff;
-        text-decoration: none;
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: bold;
-        text-transform: uppercase;
-        z-index: 9999;
-        border-radius: 5px;
-        box-shadow: 0 0 10px #00f3ff;
-        transition: all 0.3s ease;
-    }
-    .home-button:hover {
-        background: #00f3ff;
-        color: #000;
-        box-shadow: 0 0 20px #00f3ff;
-    }
-</style>
+    <!-- Boton Volver al Inicio -->
+    <a href="../index.html" class="home-button">VOLVER AL INICIO</a>
+    <style>
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00f3ff;
+            border: 2px solid #00f3ff;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            z-index: 9999;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00f3ff;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            background: #00f3ff;
+            color: #000;
+            box-shadow: 0 0 20px #00f3ff;
+        }
+    </style>
 </body>
 
 </html>
