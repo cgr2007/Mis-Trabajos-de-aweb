@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#b9e8e4" />
+    <title>Patos | Nuestro pequeño estanque</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="patos.css" />
+  </head>
+  <body>
+    <header class="duck-topbar">
+      <a class="duck-brand" href="index.html">tú <span>+</span> yo</a>
+      <a class="back-link" href="index.html">Volver a nuestra historia</a>
+    </header>
+
+    <main class="duck-main">
+      <section class="duck-intro">
+        <p class="duck-eyebrow">Un rincón solo para nosotros</p>
+        <h1>Patos</h1>
+        <p>Un estanque lleno de pequeños cuacs.</p>
+        <div class="sound-status" aria-live="polite"><span class="sound-dot"></span> Sonido de patos activado al tocar</div>
+        <div class="duck-counter" aria-live="polite">Patos tocados: <strong id="duck-clicks">0</strong></div>
+      </section>
+      <section class="pond" id="pond" aria-label="Estanque interactivo de patos">
+        <div class="pond-shine" aria-hidden="true"></div>
+        <div class="pond-reed reed-left" aria-hidden="true"></div>
+        <div class="pond-reed reed-right" aria-hidden="true"></div>
+      </section>
+    </main>
+
+    <script src="patos.js"></script>
+  </body>
+</html>

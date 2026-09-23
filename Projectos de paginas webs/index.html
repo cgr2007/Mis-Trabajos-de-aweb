@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7efe8" />
+    <title>Nuestra historia | 12.06 - 29.06</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- EDITA AQUI: cambia los textos de la historia y los nombres de las fotos cuando quieras personalizar la pagina. -->
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio" data-i18n-aria-label="nav.home">tú <span>+</span> yo</a>
+      <nav aria-label="Navegación principal" data-i18n-aria-label="nav.label">
+        <a href="#historia" data-i18n="nav.story">Historia</a>
+        <a href="#momentos" data-i18n="nav.moments">Momentos</a>
+        <a href="#futuro" data-i18n="nav.future">Futuro</a>
+        <a href="patos.html" data-i18n="nav.ducks">Patos</a>
+      </nav>
+      <div class="topbar-actions">
+        <div class="language-picker">
+          <button class="language-toggle" type="button" aria-expanded="false" aria-controls="language-menu">ES <span>⌄</span></button>
+          <div class="language-menu" id="language-menu" hidden>
+            <button type="button" data-language="es">Español</button>
+            <button type="button" data-language="ro">Română</button>
+            <button type="button" data-language="en">English</button>
+          </div>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Cambiar a modo oscuro" aria-pressed="false" title="Cambiar modo de color">◐</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Una pequeña cápsula de lo nuestro · 2026</p>
+          <h1 data-i18n-html="hero.title">Todo empezó<br /><em>el 12 de junio.</em></h1>
+          <p class="intro" data-i18n="hero.intro">Nuestra primera conversación fue el 7 de junio y, el 12, empezamos a ser algo más que amigos. Desde el segundo en que te vi, supe que quería estar contigo.</p>
+          <a class="button" href="#historia"><span data-i18n="hero.button">Ver nuestra historia</span> <span>↓</span></a>
+        </div>
+        <div class="hero-image reveal delay-1">
+          <!-- FOTO DE PORTADA: sustituye el valor de src por algo como "fotos/portada.jpg" y cambia el alt. -->
+          <img src="fotos/3ff18b15-12a3-4dc7-8d50-347d9e126b0c.jpg" alt="Flores rosas sobre una mesa" data-i18n-alt="images.cover" />
+          <span class="image-note" data-i18n="hero.note">para mi persona favorita</span>
+        </div>
+        <div class="hero-stamp">12<br /><small data-i18n="months.juneShort">jun</small></div>
+      </section>
+
+      <section class="anniversary band reveal" id="futuro">
+        <div>
+            <p class="eyebrow" data-i18n="anniversary.eyebrow">Próximo capítulo</p>
+          <h2 data-i18n="anniversary.title">3 meses de nosotros</h2>
+          <p class="section-copy" data-i18n="anniversary.copy">El 29 de septiembre celebramos todo lo que ya hemos vivido y todo lo bonito que todavía nos queda.</p>
+        </div>
+        <div class="countdown" aria-label="Cuenta atrás para nuestro aniversario" data-i18n-aria-label="countdown.label">
+          <div><strong id="days">--</strong><span data-i18n="countdown.days">días</span></div>
+          <div><strong id="hours">--</strong><span data-i18n="countdown.hours">horas</span></div>
+          <div><strong id="minutes">--</strong><span data-i18n="countdown.minutes">min</span></div>
+          <div><strong id="seconds">--</strong><span data-i18n="countdown.seconds">seg</span></div>
+        </div>
+        <div class="together-counter" aria-label="Tiempo que llevamos juntos" data-i18n-aria-label="together.label">
+          <p class="counter-label" data-i18n="together.title">Llevamos juntos</p>
+          <div class="together-values">
+            <div><strong id="together-days">--</strong><span data-i18n="together.days">días</span></div>
+            <div><strong id="together-hours">--</strong><span data-i18n="together.hours">horas</span></div>
+            <div><strong id="together-minutes">--</strong><span data-i18n="together.minutes">minutos</span></div>
+          </div>
+        </div>
+        <p class="date-mark">29 · 09 · 2026</p>
+      </section>
+
+      <section class="story section" id="historia">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="story.eyebrow">La línea del tiempo</p>
+          <h2 data-i18n-html="story.title">De una conversación<br /><em>a nuestra historia.</em></h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-date">07<br /><span data-i18n="months.june">junio</span></div>
+            <div class="timeline-line"></div>
+            <!-- HISTORIA 1: primera conversación del 7 de junio. -->
+            <div class="timeline-content"><p class="eyebrow" data-i18n="story.first.eyebrow">La primera conversación</p><h3 data-i18n="story.first.title">El 7 de junio tuvimos nuestra primera conversación.</h3><p data-i18n="story.first.copy">Ese fue el primer momento de una historia que nos llevaría a conocernos de verdad.</p></div>
+          </article>
+          <article class="timeline-item reveal delay-1">
+            <div class="timeline-date">12<br /><span data-i18n="months.june">junio</span></div>
+            <div class="timeline-line"></div>
+            <!-- HISTORIA 2: el día que empezamos a ser algo más que amigos. -->
+            <div class="timeline-content"><p class="eyebrow" data-i18n="story.second.eyebrow">Algo más que amigos</p><h3 data-i18n="story.second.title">El 12 de junio empezamos a ser algo más.</h3><p data-i18n="story.second.copy">No éramos todavía una pareja oficial, pero los dos sabíamos que lo nuestro ya era especial.</p></div>
+          </article>
+          <article class="timeline-item reveal delay-2">
+            <div class="timeline-date">22<br /><span data-i18n="months.june">junio</span></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-content"><p class="eyebrow" data-i18n="story.lake.eyebrow">Un día especial</p><h3 data-i18n="story.lake.title">El 22 de junio fuimos a un lago precioso.</h3><p data-i18n="story.lake.copy">Fue uno de esos días tranquilos y bonitos que se quedan guardados para siempre.</p></div>
+          </article>
+          <article class="timeline-item reveal delay-1">
+            <div class="timeline-date">29<br /><span data-i18n="months.june">junio</span></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-content"><p class="eyebrow" data-i18n="story.official.eyebrow">Nuestra fecha</p><h3 data-i18n="story.official.title">El 29 de junio nuestra relación se hizo oficial.</h3><p data-i18n="story.official.copy">Ese día dejamos de ser solo algo especial y empezamos oficialmente nuestra historia juntos.</p></div>
+          </article>
+          <article class="timeline-item reveal delay-2">
+            <div class="timeline-date timeline-date-word"><span data-i18n="story.madrid.date">28 ago — 05 sep</span><small data-i18n="story.madrid.month">Madrid</small></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-content"><p class="eyebrow" data-i18n="story.madrid.eyebrow">Nuestro viaje</p><h3 data-i18n="story.madrid.title">Del 28 de agosto al 5 de septiembre, vivimos Madrid y Toledo.</h3><p data-i18n="story.madrid.copy">Fui a buscarte al aeropuerto y te llevé a conocer Madrid y Toledo. Fueron días increíbles juntos, hasta que te marchaste el día 5.</p></div>
+          </article>
+          <article class="timeline-item reveal delay-2">
+            <div class="timeline-date">29<br /><span data-i18n="months.september">septiembre</span></div>
+            <div class="timeline-line"></div>
+            <!-- HISTORIA 3: puedes dejarlo como futuro o escribir aqui vuestro recuerdo del 29 de septiembre. -->
+            <div class="timeline-content"><p class="eyebrow" data-i18n="story.third.eyebrow">Lo que viene</p><h3 data-i18n="story.third.title">Tres meses y mil planes.</h3><p data-i18n="story.third.copy">Una fecha para brindar por lo que hemos construido y por todos los recuerdos que aún nos faltan.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="moments section" id="momentos">
+        <div class="section-heading reveal"><p class="eyebrow" data-i18n="moments.eyebrow">Pequeñas escenas, grandes recuerdos</p><h2 data-i18n-html="moments.title">Momentos que<br /><em>guardaría siempre.</em></h2></div>
+        <div class="gallery">
+          <figure class="gallery-card large reveal"><img src="fotos/04d97192-5b02-456e-bae5-b8c43c613297.jpg" alt="Recuerdo 01" /><figcaption><span>01</span> <span data-i18n="gallery.one">Un recuerdo para guardar</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-1"><img src="fotos/06afb547-e038-4b16-a4c6-28fae6f75df6.jpg" alt="Recuerdo 02" /><figcaption><span>02</span> <span data-i18n="gallery.two">Nuestras pequeñas escenas</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-2"><img src="fotos/0fe9e031-8461-4c24-853c-edc2bd94f52a.jpg" alt="Recuerdo 03" /><figcaption><span>03</span> <span data-i18n="gallery.three">Siempre contigo</span></figcaption></figure>
+          <figure class="gallery-card reveal"><img src="fotos/32e01df9-1ec0-442c-8e03-14fa9cbaafb9.jpg" alt="Recuerdo 04" /><figcaption><span>04</span> <span data-i18n="gallery.four">Un día bonito</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-1"><img src="fotos/504d5921-5a08-48d3-be88-dee007f295be.jpg" alt="Recuerdo 05" /><figcaption><span>05</span> <span data-i18n="gallery.five">Lo nuestro</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-2"><img src="fotos/5ab49983-f26e-4c7e-bab6-5ae791577f68.jpg" alt="Recuerdo 06" /><figcaption><span>06</span> <span data-i18n="gallery.six">Momentos compartidos</span></figcaption></figure>
+          <figure class="gallery-card reveal"><img src="fotos/6bac3550-ed2b-4544-9ed7-29ca4491f57d.jpg" alt="Recuerdo 07" /><figcaption><span>07</span> <span data-i18n="gallery.seven">Donde todo se siente fácil</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-1"><img src="fotos/9968c68b-cc51-4eeb-9cac-19de96ad30f4.jpg" alt="Recuerdo 08" /><figcaption><span>08</span> <span data-i18n="gallery.eight">Nuestras risas</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-2"><img src="fotos/ac24e0a1-b258-40f0-b55e-dc998e13c5c5.jpg" alt="Recuerdo 09" /><figcaption><span>09</span> <span data-i18n="gallery.nine">Un instante nuestro</span></figcaption></figure>
+          <figure class="gallery-card reveal"><img src="fotos/af46b0a8-5b4c-47e0-b717-2452ef54d07f.jpg" alt="Recuerdo 10" /><figcaption><span>10</span> <span data-i18n="gallery.ten">Juntos, siempre</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-1"><img src="fotos/b8a7c21a-7039-4f92-a846-a1902bd8009b.jpg" alt="Recuerdo 11" /><figcaption><span>11</span> <span data-i18n="gallery.eleven">Una historia en fotos</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-2"><img src="fotos/bb5b87f5-951f-4dc1-9744-67c0666d6160.jpg" alt="Recuerdo 12" /><figcaption><span>12</span> <span data-i18n="gallery.twelve">Un lugar favorito</span></figcaption></figure>
+          <figure class="gallery-card reveal"><img src="fotos/cb1bd550-9913-4280-bda1-7e07bf6482d4.jpg" alt="Recuerdo 13" /><figcaption><span>13</span> <span data-i18n="gallery.thirteen">Todo lo que vivimos</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-1"><img src="fotos/d0b74db2-3018-4a2c-af2a-609a41f5a40c.jpg" alt="Recuerdo 14" /><figcaption><span>14</span> <span data-i18n="gallery.fourteen">Una sonrisa contigo</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-2"><img src="fotos/d470792f-17e6-47ee-80ae-750ee275be59.jpg" alt="Recuerdo 15" /><figcaption><span>15</span> <span data-i18n="gallery.fifteen">Pequeños momentos</span></figcaption></figure>
+          <figure class="gallery-card reveal"><img src="fotos/e0d1b6b8-54fd-42f5-bbf1-de3a2a8e2fae.jpg" alt="Recuerdo 16" /><figcaption><span>16</span> <span data-i18n="gallery.sixteen">Lo bonito de nosotros</span></figcaption></figure>
+          <figure class="gallery-card reveal delay-1"><img src="fotos/f5ae61e0-6102-4e2d-bb80-929b33889614.jpg" alt="Recuerdo 17" /><figcaption><span>17</span> <span data-i18n="gallery.seventeen">Para recordar siempre</span></figcaption></figure>
+        </div>
+      </section>
+
+      <section class="letter section reveal">
+        <div class="letter-card">
+          <button class="button letter-button" type="button" aria-expanded="false" aria-controls="letter-content"><span data-i18n="letter.open">Abrir mi nota</span><span>♡</span></button>
+          <div class="letter-content" id="letter-content" hidden>
+            <p class="eyebrow" data-i18n="letter.eyebrow">Una nota para ti</p>
+            <p class="letter-text" data-i18n="letter.copy">Gracias por aparecer en mi vida de una forma tan bonita. Por cada conversación, cada abrazo y cada momento que convierte un día normal en uno especial.</p>
+            <p class="signature" data-i18n-html="letter.signature">Con todo mi amor,<br /><em>Roberto</em> ♡</p>
+            <img class="letter-image" src="fotos/Imagen 22-9-26 a las 16.31.png" alt="Un recuerdo especial" data-i18n-alt="images.letter" />
+            <button class="download-note" type="button" data-i18n="letter.download">Descargar la nota</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <div class="lightbox-backdrop" data-lightbox-close></div>
+      <div class="lightbox-panel">
+        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Cerrar imagen" data-i18n-aria-label="lightbox.close">×</button>
+        <p class="lightbox-title" id="lightbox-title" data-i18n="lightbox.title">Vista ampliada</p>
+        <img class="lightbox-image" src="" alt="" />
+      </div>
+    </div>
+
+    <footer><span data-i18n="footer">Hecho para nosotros</span><span>12.06.26 — ∞</span></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
